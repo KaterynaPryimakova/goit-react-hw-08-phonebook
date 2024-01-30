@@ -1,16 +1,13 @@
+import { Navigation, UserMenu } from 'components';
 import { Suspense } from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 
 export const SharedLayout = () => {
   return (
     <div>
       <header>
-        <nav>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="register">Register</NavLink>
-          <NavLink to="login">Log in</NavLink>
-          <NavLink to="contacts">Contacts</NavLink>
-        </nav>
+        <Navigation />
+        <UserMenu />
       </header>
 
       <main>
