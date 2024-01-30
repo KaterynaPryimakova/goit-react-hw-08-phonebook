@@ -7,7 +7,7 @@ import {
   selectisLoading,
 } from '../../redux/contacts/selectors';
 
-import { fetchContacts } from '../../redux/operations';
+import { fetchContacts } from '../../redux/contacts/operations';
 import { ContactItem } from 'components/ContactItem/ContactItem';
 import css from './ContactList.module.css';
 
