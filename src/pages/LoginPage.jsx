@@ -1,7 +1,66 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { loginUser } from '../redux/auth/operations';
 
 const LoginPage = () => {
-  return <div>LoginPage</div>;
+  const dispatch = useDispatch();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleChange = e => {
+    const { name, value } = e.currentTarget;
+
+    switch (name) {
+      case 'email':
+        setEmail(value);
+        break;
+
+      case 'password':
+        setPassword(value);
+        break;
+
+      default:
+        console.warn(`There is no input with name: ${name}`);
+    }
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    const userData = { email, password };
+    dispatch(loginUser(userData));
+  };
+
+  return (
+    <div>
+      <h1>LoginPage</h1>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Your email:
+          <input
+            onChange={handleChange}
+            type="email"
+            name="email"
+            value={email}
+            autoComplete="on"
+            required
+          />
+        </label>
+        <label>
+          Password:
+          <input
+            onChange={handleChange}
+            type="password"
+            name="password"
+            value={password}
+            minLength={6}
+            autoComplete="on"
+            required
+          />
+        </label>
+        <button type="submit">Sign up</button>
+      </form>
+    </div>
+  );
 };
 
 export default LoginPage;

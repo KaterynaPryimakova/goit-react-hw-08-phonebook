@@ -2,11 +2,12 @@ import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import { loginUser, registerUser } from './operations';
 
 const initialState = {
+  isLoggedIn: false,
+  userData: null,
   token: null,
   error: null,
-  userData: null,
+
   isLoading: false,
-  isLoggedIn: false,
 };
 
 const authSlice = createSlice({
