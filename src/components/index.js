@@ -2,5 +2,8 @@ export { ContactForm } from './ContactForm/ContactForm';
 export { ContactItem } from './ContactItem/ContactItem';
 export { ContactList } from './ContactList/ContactList';
 export { Filter } from './Filter/Filter';
+export { SharedLayout } from './SharedLayout/SharedLayout';
 export { UserMenu } from './UserMenu/UserMenu';
 export { Navigation } from './Navigation/Navigation';
+export { RestrictedRoute } from './RestrictedRoute/RestrictedRoute';
+export { PrivateRoute } from './PrivateRoute/PrivateRoute';

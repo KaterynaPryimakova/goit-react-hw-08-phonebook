@@ -6,7 +6,8 @@ import { selectIsLoading, selectUserData } from '../../redux/auth/selectors';
 export const UserMenu = () => {
   const dispatch = useDispatch();
   const userData = useSelector(selectUserData);
-  const userEmail = userData?.email && 'Couldn`t get the user email.';
+  console.log(userData);
+  const user = userData?.name ?? 'Couldn`t get the user name.';
   const isLoading = useSelector(selectIsLoading);
 
   const handleLogout = e => {
@@ -14,7 +15,7 @@ export const UserMenu = () => {
   };
   return (
     <div>
-      <p>{userEmail}</p>
+      <p>Welcome {user}!</p>
       <button onClick={handleLogout} disabled={isLoading} type="button">
         Logout
       </button>
