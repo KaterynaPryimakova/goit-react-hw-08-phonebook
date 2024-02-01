@@ -6,7 +6,6 @@ import { selectIsLoading, selectUserData } from '../../redux/auth/selectors';
 export const UserMenu = () => {
   const dispatch = useDispatch();
   const userData = useSelector(selectUserData);
-  console.log(userData);
   const user = userData?.name ?? 'Couldn`t get the user name.';
   const isLoading = useSelector(selectIsLoading);
 

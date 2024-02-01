@@ -1,9 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
-
-const axiosInstance = axios.create({
-  baseURL: 'https://connections-api.herokuapp.com',
-});
+import { axiosInstance } from '../../helpers/axiosInstance';
 
 const setToken = token => {
   axiosInstance.defaults.headers.common.Authorization = `Bearer ${token}`;

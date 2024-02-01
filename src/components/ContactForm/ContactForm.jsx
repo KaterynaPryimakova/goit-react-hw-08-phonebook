@@ -8,7 +8,7 @@ export const ContactForm = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
   const [name, setName] = useState('');
-  const [phone, setNumber] = useState('');
+  const [number, setNumber] = useState('');
 
   const handleChange = e => {
     const { name, value } = e.currentTarget;
@@ -18,7 +18,7 @@ export const ContactForm = () => {
         setName(value);
         break;
 
-      case 'phone':
+      case 'number':
         setNumber(value);
         break;
 
@@ -30,7 +30,8 @@ export const ContactForm = () => {
   const handleAddContact = evt => {
     evt.preventDefault();
 
-    const contactData = { name, phone };
+    const contactData = { name, number };
+    console.log(contactData);
 
     const alreadyExist = contacts.some(
       contact => contact.name.toLowerCase() === contactData.name.toLowerCase()
@@ -49,7 +50,7 @@ export const ContactForm = () => {
   return (
     <form className={css.form} onSubmit={handleAddContact}>
       <label>
-        Enter your name:
+        Name:
         <input
           onChange={handleChange}
           type="text"
@@ -61,13 +62,13 @@ export const ContactForm = () => {
       </label>
 
       <label>
-        Enter your number:
+        Number:
         <input
           onChange={handleChange}
           type="tel"
-          name="phone"
+          name="number"
           autoComplete="on"
-          value={phone}
+          value={number}
           required
         />
       </label>

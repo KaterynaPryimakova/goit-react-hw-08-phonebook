@@ -29,8 +29,8 @@ export const ContactList = () => {
 
       {contacts && contacts.length > 0 && (
         <ul className={css.list}>
-          {contacts.map(({ name, phone, id }) => {
-            return <ContactItem name={name} number={phone} id={id} key={id} />;
+          {contacts.map(({ name, number, id }) => {
+            return <ContactItem name={name} number={number} id={id} key={id} />;
           })}
         </ul>
       )}
