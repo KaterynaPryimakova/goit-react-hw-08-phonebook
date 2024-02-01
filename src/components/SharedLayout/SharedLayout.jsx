@@ -6,7 +6,6 @@ import { selectIsLoggedIn } from '../../redux/auth/selectors';
 
 export const SharedLayout = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  console.log(isLoggedIn);
   return (
     <div>
       <header>
