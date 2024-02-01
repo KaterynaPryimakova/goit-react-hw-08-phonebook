@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import css from './ContactForm.module.css';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useContacts } from '../../hooks/useContacts';
 import { addContact } from '../../redux/contacts/operations';
-import { selectContacts } from '../../redux/contacts/selectors';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(selectContacts);
+  const { contacts } = useContacts();
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
@@ -31,7 +31,6 @@ export const ContactForm = () => {
     evt.preventDefault();
 
     const contactData = { name, number };
-    console.log(contactData);
 
     const alreadyExist = contacts.some(
       contact => contact.name.toLowerCase() === contactData.name.toLowerCase()
