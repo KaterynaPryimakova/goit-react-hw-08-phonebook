@@ -9,9 +9,9 @@ const setToken = token => {
   axiosInstance.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
-// const removeToken = () => {
-//   axiosInstance.defaults.headers.common.Authorization = '';
-// };
+const removeToken = () => {
+  axiosInstance.defaults.headers.common.Authorization = '';
+};
 
 export const registerUser = createAsyncThunk(
   'auth/registerUser',
@@ -44,10 +44,24 @@ export const refreshUser = createAsyncThunk(
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     const token = state.auth.token;
+    if (!token) return thunkAPI.rejectWithValue("You don't have a token!");
     try {
       setToken(token);
       const { data } = await axiosInstance.get('/users/current');
       return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const logoutUser = createAsyncThunk(
+  'auth/logoutUser',
+  async (_, thunkAPI) => {
+    try {
+      await axiosInstance.post('/users/logout');
+      removeToken();
+      return;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
