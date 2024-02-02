@@ -1,21 +1,23 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import { useAuth } from 'hooks/useAuth';
+import { Toolbar } from '@mui/material';
+import { StyledLink } from './Navigation.styled';
 
 export const Navigation = () => {
   const { isLoggedIn } = useAuth();
 
   return (
-    <nav>
-      <NavLink to="/">Home</NavLink>
+    <Toolbar component="nav">
+      <StyledLink to="/">Home</StyledLink>
+
       {isLoggedIn ? (
-        <NavLink to="/contacts">Contacts</NavLink>
+        <StyledLink to="/contacts">Contacts</StyledLink>
       ) : (
         <>
-          <NavLink to="/register">Register</NavLink>
-          <NavLink to="/login">Log in</NavLink>
+          <StyledLink to="/register">Register</StyledLink>
+          <StyledLink to="/login">Log in</StyledLink>
         </>
       )}
-    </nav>
+    </Toolbar>
   );
 };
