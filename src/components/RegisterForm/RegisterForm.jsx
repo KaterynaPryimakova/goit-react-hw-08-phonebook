@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { registerUser } from '../../redux/auth/operations';
-import { Button } from '@mui/material';
+import { Button, TextField, Grid } from '@mui/material';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -37,10 +37,16 @@ export const RegisterForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Your name:
-        <input
+    <Grid
+      onSubmit={handleSubmit}
+      component="form"
+      container
+      direction="column"
+      alignItems="center"
+      spacing={2}
+    >
+      <Grid item xs={8}>
+        <TextField
           onChange={handleChange}
           type="text"
           name="userName"
@@ -48,22 +54,27 @@ export const RegisterForm = () => {
           minLength={2}
           autoComplete="on"
           required
+          id="outlined-basic"
+          label="Your name"
+          variant="outlined"
         />
-      </label>
-      <label>
-        Your email:
-        <input
+      </Grid>
+      <Grid item xs={5}>
+        <TextField
           onChange={handleChange}
           type="email"
           name="email"
           value={email}
           autoComplete="on"
           required
+          id="outlined-basic"
+          label="Your email"
+          variant="outlined"
         />
-      </label>
-      <label>
-        Create password:
-        <input
+      </Grid>
+
+      <Grid item xs={5}>
+        <TextField
           onChange={handleChange}
           type="password"
           name="password"
@@ -71,11 +82,16 @@ export const RegisterForm = () => {
           minLength={8}
           autoComplete="on"
           required
+          id="outlined-basic"
+          label="Password:"
+          variant="outlined"
         />
-      </label>
-      <Button type="submit" color="primary" size="small" variant="outlined">
-        Sign up
-      </Button>
-    </form>
+      </Grid>
+      <Grid item xs={5}>
+        <Button type="submit" color="primary" size="small" variant="outlined">
+          Sign up
+        </Button>
+      </Grid>
+    </Grid>
   );
 };
