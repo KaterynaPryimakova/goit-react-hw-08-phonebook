@@ -7,3 +7,5 @@ export { UserMenu } from './UserMenu/UserMenu';
 export { Navigation } from './Navigation/Navigation';
 export { RestrictedRoute } from './RestrictedRoute/RestrictedRoute';
 export { PrivateRoute } from './PrivateRoute/PrivateRoute';
+export { RegisterForm } from './RegisterForm/RegisterForm';
+export { LoginForm } from './LoginForm/LoginForm';
