@@ -67,7 +67,7 @@ export const RegisterForm = () => {
           type="password"
           name="password"
           value={password}
-          minLength={6}
+          minLength={8}
           autoComplete="on"
           required
         />

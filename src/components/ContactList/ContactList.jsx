@@ -16,7 +16,10 @@ export const ContactList = () => {
 
   return (
     <>
-      {isLoading && <p>Loading...</p>}
+      {contacts.length > 0 && (
+        <p>The contacts list is empty, add your first contacts</p>
+      )}
+      {contacts.length > 0 && isLoading && <p>Loading...</p>}
 
       {error && <p>{error}</p>}
 
