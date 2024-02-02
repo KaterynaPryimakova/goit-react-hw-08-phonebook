@@ -9,8 +9,8 @@ export const SharedLayout = () => {
   const { isLoggedIn } = useAuth();
   return (
     <div>
-      <AppBar component="header">
-        <Toolbar>
+      <AppBar component="header" position="static">
+        <Toolbar disableGutters>
           <Grid
             container
             direction="row"
@@ -24,7 +24,7 @@ export const SharedLayout = () => {
       </AppBar>
 
       <main>
-        <Container maxWidth="sm">
+        <Container maxWidth="xm">
           <Suspense fallback={null}>
             <Outlet />
           </Suspense>

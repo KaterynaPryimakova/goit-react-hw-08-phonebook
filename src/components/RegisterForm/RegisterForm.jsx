@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { registerUser } from '../../redux/auth/operations';
+import { Button } from '@mui/material';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -72,7 +73,9 @@ export const RegisterForm = () => {
           required
         />
       </label>
-      <button type="submit">Sign up</button>
+      <Button type="submit" color="primary" size="small" variant="outlined">
+        Sign up
+      </Button>
     </form>
   );
 };

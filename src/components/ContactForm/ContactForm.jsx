@@ -3,10 +3,11 @@ import css from './ContactForm.module.css';
 import { useDispatch } from 'react-redux';
 import { useContacts } from '../../hooks/useContacts';
 import { addContact } from '../../redux/contacts/operations';
+import { Button } from '@mui/material';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
-  const { contacts } = useContacts();
+  const { contacts, isLoading } = useContacts();
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
@@ -72,9 +73,16 @@ export const ContactForm = () => {
         />
       </label>
 
-      <button className={css.button} type="submit">
+      <Button
+        className={css.button}
+        type="submit"
+        disabled={isLoading}
+        color="primary"
+        size="small"
+        variant="outlined"
+      >
         Add contact
-      </button>
+      </Button>
     </form>
   );
 };

@@ -10,18 +10,21 @@ export const StyledLink = styled(NavLink)`
   border-radius: 14px;
   text-decoration: none;
   margin-right: 14px;
-  width: 64px;
-  text-align: center;
+  width: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: scale 250ms ease-in-out;
 
   :hover,
   :focus {
-    scale: 1.1;
+    box-shadow: 2px 1px 8px 0px rgba(255, 255, 255, 1);
   }
 
   &.active {
     color: #fff;
     background-color: orange;
     border: 1px solid orange;
+    box-shadow: none;
   }
 `;
