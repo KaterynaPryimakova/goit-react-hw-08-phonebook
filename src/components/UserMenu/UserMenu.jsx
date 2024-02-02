@@ -1,13 +1,12 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { logoutUser } from '../../redux/auth/operations';
-import { selectIsLoading, selectUserData } from '../../redux/auth/selectors';
+import { useAuth } from 'hooks/useAuth';
 
 export const UserMenu = () => {
   const dispatch = useDispatch();
-  const userData = useSelector(selectUserData);
+  const { userData, isLoading } = useAuth();
   const user = userData?.name ?? 'Couldn`t get the user name.';
-  const isLoading = useSelector(selectIsLoading);
 
   const handleLogout = e => {
     dispatch(logoutUser());

@@ -1,11 +1,10 @@
-import { Navigation, UserMenu } from 'components';
 import { Suspense } from 'react';
-import { useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom';
-import { selectIsLoggedIn } from '../../redux/auth/selectors';
+import { useAuth } from 'hooks/useAuth';
+import { Navigation, UserMenu } from 'components';
 
 export const SharedLayout = () => {
-  const isLoggedIn = useSelector(selectIsLoggedIn);
+  const { isLoggedIn } = useAuth();
   return (
     <div>
       <header>
