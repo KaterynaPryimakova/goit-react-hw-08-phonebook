@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import css from './ContactForm.module.css';
 import { useDispatch } from 'react-redux';
 import { useContacts } from '../../hooks/useContacts';
 import { addContact } from '../../redux/contacts/operations';
-import { Button } from '@mui/material';
+import { Button, TextField, Grid } from '@mui/material';
+import AddIcCallOutlinedIcon from '@mui/icons-material/AddIcCallOutlined';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
@@ -48,41 +48,55 @@ export const ContactForm = () => {
   };
 
   return (
-    <form className={css.form} onSubmit={handleAddContact}>
-      <label>
-        Name:
-        <input
+    <Grid
+      onSubmit={handleAddContact}
+      component="form"
+      container
+      direction="column"
+      alignItems="center"
+      spacing={2}
+    >
+      <Grid item xs={4}>
+        <AddIcCallOutlinedIcon htmlColor="orange" fontSize="large" />
+      </Grid>
+
+      <Grid item xs={4}>
+        <TextField
           onChange={handleChange}
           type="text"
           name="name"
           autoComplete="on"
           value={name}
           required
+          label="Name"
+          variant="outlined"
         />
-      </label>
+      </Grid>
 
-      <label>
-        Number:
-        <input
+      <Grid item xs={4}>
+        <TextField
           onChange={handleChange}
           type="tel"
           name="number"
           autoComplete="on"
           value={number}
           required
+          label="Number"
+          variant="outlined"
         />
-      </label>
+      </Grid>
 
-      <Button
-        className={css.button}
-        type="submit"
-        disabled={isLoading}
-        color="primary"
-        size="small"
-        variant="outlined"
-      >
-        Add contact
-      </Button>
-    </form>
+      <Grid item xs={4}>
+        <Button
+          type="submit"
+          disabled={isLoading}
+          color="primary"
+          size="large"
+          variant="outlined"
+        >
+          Add contact
+        </Button>
+      </Grid>
+    </Grid>
   );
 };

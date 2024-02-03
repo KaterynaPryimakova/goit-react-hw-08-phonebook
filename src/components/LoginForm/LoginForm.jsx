@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../../redux/auth/operations';
 import { useAuth } from 'hooks/useAuth';
-import { Button } from '@mui/material';
+import { Button, TextField, Grid } from '@mui/material';
+import { LoginOutlined } from '@mui/icons-material';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -37,34 +38,54 @@ export const LoginForm = () => {
       {isLoading ? (
         <p>Loading...</p>
       ) : (
-        <form onSubmit={handleSubmit}>
-          <label>
-            Your email:
-            <input
+        <Grid
+          onSubmit={handleSubmit}
+          component="form"
+          container
+          direction="column"
+          alignItems="center"
+          spacing={2}
+        >
+          <Grid item xs={4}>
+            <LoginOutlined htmlColor="orange" fontSize="large" />
+          </Grid>
+          <Grid item xs={4}>
+            <TextField
               onChange={handleChange}
               type="email"
               name="email"
               value={email}
+              minLength={7}
               autoComplete="on"
               required
+              label="Your email"
+              variant="outlined"
             />
-          </label>
-          <label>
-            Password:
-            <input
+          </Grid>
+          <Grid item xs={4}>
+            <TextField
               onChange={handleChange}
               type="password"
               name="password"
               value={password}
-              minLength={6}
+              minLength={7}
               autoComplete="on"
               required
+              label="Password"
+              variant="outlined"
             />
-          </label>
-          <Button type="submit" color="primary" size="small" variant="outlined">
-            Log in
-          </Button>
-        </form>
+          </Grid>
+          <Grid item xs={4}>
+            <Button
+              type="submit"
+              color="primary"
+              size="large"
+              variant="outlined"
+            >
+              Log in
+            </Button>
+          </Grid>
+        </Grid>
       )}
     </>
   );

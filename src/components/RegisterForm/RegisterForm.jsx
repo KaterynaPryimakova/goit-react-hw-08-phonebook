@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { registerUser } from '../../redux/auth/operations';
 import { Button, TextField, Grid } from '@mui/material';
+import AppRegistrationRoundedIcon from '@mui/icons-material/AppRegistrationRounded';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -45,7 +46,11 @@ export const RegisterForm = () => {
       alignItems="center"
       spacing={2}
     >
-      <Grid item xs={8}>
+      <Grid item xs={4}>
+        <AppRegistrationRoundedIcon htmlColor="orange" fontSize="large" />
+      </Grid>
+
+      <Grid item xs={4}>
         <TextField
           onChange={handleChange}
           type="text"
@@ -54,12 +59,11 @@ export const RegisterForm = () => {
           minLength={2}
           autoComplete="on"
           required
-          id="outlined-basic"
           label="Your name"
           variant="outlined"
         />
       </Grid>
-      <Grid item xs={5}>
+      <Grid item xs={4}>
         <TextField
           onChange={handleChange}
           type="email"
@@ -67,13 +71,12 @@ export const RegisterForm = () => {
           value={email}
           autoComplete="on"
           required
-          id="outlined-basic"
           label="Your email"
           variant="outlined"
         />
       </Grid>
 
-      <Grid item xs={5}>
+      <Grid item xs={4}>
         <TextField
           onChange={handleChange}
           type="password"
@@ -82,13 +85,12 @@ export const RegisterForm = () => {
           minLength={8}
           autoComplete="on"
           required
-          id="outlined-basic"
           label="Password:"
           variant="outlined"
         />
       </Grid>
-      <Grid item xs={5}>
-        <Button type="submit" color="primary" size="small" variant="outlined">
+      <Grid item xs={4}>
+        <Button type="submit" color="primary" size="large" variant="outlined">
           Sign up
         </Button>
       </Grid>

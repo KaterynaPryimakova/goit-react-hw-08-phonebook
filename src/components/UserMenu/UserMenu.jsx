@@ -2,7 +2,8 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { logoutUser } from '../../redux/auth/operations';
 import { useAuth } from 'hooks/useAuth';
-import { Button, Grid } from '@mui/material';
+import { Button, Grid, Typography } from '@mui/material';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 export const UserMenu = () => {
   const dispatch = useDispatch();
@@ -20,15 +21,17 @@ export const UserMenu = () => {
         justifyContent="center"
         alignItems="center"
       >
-        <p>{user}</p>
+        <Typography paragraph variant="button" mb={0}>
+          {user}
+        </Typography>
         <Button
           onClick={handleLogout}
           disabled={isLoading}
           type="button"
           size="small"
-          variant="contained"
+          variant="text"
         >
-          Logout
+          <LogoutIcon htmlColor="orange" />
         </Button>
       </Grid>
     </div>

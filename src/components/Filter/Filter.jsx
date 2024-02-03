@@ -1,8 +1,8 @@
 import React from 'react';
-import css from './Filter.module.css';
 import { useDispatch } from 'react-redux';
 import { setFilter } from '../../redux/contacts/contactsSlice';
 import { useContacts } from 'hooks/useContacts';
+import { TextField } from '@mui/material';
 
 export const Filter = () => {
   const dispatch = useDispatch();
@@ -13,15 +13,14 @@ export const Filter = () => {
   };
 
   return (
-    <label className={css.label}>
-      Find contacts by name:
-      <input
-        onChange={handleFindContact}
-        type="text"
-        name="search"
-        autoComplete="on"
-        value={filter}
-      />
-    </label>
+    <TextField
+      onChange={handleFindContact}
+      type="text"
+      name="search"
+      autoComplete="on"
+      value={filter}
+      label="Find contacts:"
+      variant="standard"
+    />
   );
 };

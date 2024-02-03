@@ -27,4 +27,7 @@ export const StyledLink = styled(NavLink)`
     border: 1px solid orange;
     box-shadow: none;
   }
+  &.active:hover {
+    box-shadow: 2px 1px 8px 0px rgba(255, 255, 255, 1);
+  }
 `;

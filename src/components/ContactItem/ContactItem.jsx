@@ -1,9 +1,9 @@
 import React from 'react';
-import css from './ContactItem.module.css';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from '../../redux/contacts/operations';
 import { useContacts } from 'hooks/useContacts';
 import { Button } from '@mui/material';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 export const ContactItem = ({ name, number, id }) => {
   const dispatch = useDispatch();
@@ -14,18 +14,17 @@ export const ContactItem = ({ name, number, id }) => {
   };
 
   return (
-    <li key={id} className={css.item} id={id}>
+    <li key={id} id={id}>
       <p>{name}</p>
       <p>{number}</p>
       <Button
         onClick={() => handleDeleteContact(id)}
-        className={css.button}
         disabled={isLoading}
         color="primary"
         size="small"
         variant="outlined"
       >
-        Delete
+        <DeleteOutlineIcon htmlColor="orange" fontSize="small" />
       </Button>
     </li>
   );
