@@ -4,7 +4,7 @@ import { ContactForm, ContactList, Filter } from 'components';
 const ContactsPage = () => {
   return (
     <div>
-      <h1>Phonebook</h1>
+      <h1 hidden={true}>Phonebook</h1>
       <ContactForm />
 
       <Grid
@@ -15,7 +15,7 @@ const ContactsPage = () => {
         spacing={2}
       >
         <Grid item xs={4}>
-          <h2>Contacts</h2>
+          <h2 hidden={true}>Contacts</h2>
         </Grid>
         <Grid item xs={4}>
           <Filter />

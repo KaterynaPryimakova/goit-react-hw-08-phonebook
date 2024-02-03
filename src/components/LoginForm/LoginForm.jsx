@@ -45,6 +45,7 @@ export const LoginForm = () => {
           direction="column"
           alignItems="center"
           spacing={2}
+          mt={2}
         >
           <Grid item xs={4}>
             <LoginOutlined htmlColor="orange" fontSize="large" />

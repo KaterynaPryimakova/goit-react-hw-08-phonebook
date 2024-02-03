@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { refreshUser } from '../redux/auth/operations';
 import { PrivateRoute, RestrictedRoute, SharedLayout } from 'components';
-const HomePage = lazy(() => import('pages/HomePage'));
+const HomePage = lazy(() => import('pages/HomePage/HomePage'));
 const RegisterPage = lazy(() => import('pages/RegisterPage'));
 const LoginPage = lazy(() => import('pages/LoginPage'));
 const ContactsPage = lazy(() => import('pages/ContactsPage'));

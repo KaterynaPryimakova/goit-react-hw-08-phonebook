@@ -5,7 +5,6 @@ import { NavLink } from 'react-router-dom';
 export const StyledLink = styled(NavLink)`
   color: #fff;
   background-color: transparent;
-  border: 1px solid #fff;
   padding: 6px 12px;
   border-radius: 14px;
   text-decoration: none;

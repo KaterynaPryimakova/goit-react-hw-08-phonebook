@@ -3,7 +3,7 @@ import { LoginForm } from 'components';
 const LoginPage = () => {
   return (
     <div>
-      <h1>LoginPage</h1>
+      <h1 hidden={true}>LoginPage</h1>
       <LoginForm />
     </div>
   );

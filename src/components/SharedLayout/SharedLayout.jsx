@@ -24,7 +24,7 @@ export const SharedLayout = () => {
       </AppBar>
 
       <main>
-        <Container maxWidth="xm">
+        <Container fixed>
           <Suspense fallback={null}>
             <Outlet />
           </Suspense>
