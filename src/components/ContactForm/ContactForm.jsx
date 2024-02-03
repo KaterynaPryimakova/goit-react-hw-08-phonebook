@@ -4,7 +4,6 @@ import { useContacts } from '../../hooks/useContacts';
 import { addContact } from '../../redux/contacts/operations';
 import { Button, TextField, Grid } from '@mui/material';
 import AddIcCallOutlinedIcon from '@mui/icons-material/AddIcCallOutlined';
-import { toast } from 'react-toastify';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
@@ -42,11 +41,7 @@ export const ContactForm = () => {
       alert(`${contactData.name} is already in contacts.`);
       return;
     }
-    dispatch(addContact(contactData))
-      .unwrap()
-      .then(() => {
-        toast.success('Contact was successfully added!');
-      });
+    dispatch(addContact(contactData));
 
     setName('');
     setNumber('');

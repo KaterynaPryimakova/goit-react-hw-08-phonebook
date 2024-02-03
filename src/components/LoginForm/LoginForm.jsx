@@ -2,7 +2,13 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../../redux/auth/operations';
 import { useAuth } from 'hooks/useAuth';
-import { Button, TextField, Grid } from '@mui/material';
+import {
+  Button,
+  TextField,
+  Grid,
+  Backdrop,
+  CircularProgress,
+} from '@mui/material';
 import { LoginOutlined } from '@mui/icons-material';
 
 export const LoginForm = () => {
@@ -36,7 +42,12 @@ export const LoginForm = () => {
   return (
     <>
       {isLoading ? (
-        <p>Loading...</p>
+        <Backdrop
+          sx={{ color: '#fff', zIndex: theme => theme.zIndex.drawer + 1 }}
+          open={isLoading}
+        >
+          <CircularProgress color="inherit" />
+        </Backdrop>
       ) : (
         <Grid
           onSubmit={handleSubmit}

@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { registerUser } from '../../redux/auth/operations';
-import { Button, TextField, Grid } from '@mui/material';
+import {
+  Button,
+  TextField,
+  Grid,
+  Backdrop,
+  CircularProgress,
+} from '@mui/material';
 import AppRegistrationRoundedIcon from '@mui/icons-material/AppRegistrationRounded';
+import { useAuth } from 'hooks/useAuth';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
   const [userName, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { isLoading } = useAuth();
 
   const handleChange = e => {
     const { name, value } = e.currentTarget;
@@ -38,63 +46,79 @@ export const RegisterForm = () => {
   };
 
   return (
-    <Grid
-      onSubmit={handleSubmit}
-      component="form"
-      container
-      direction="column"
-      alignItems="center"
-      spacing={2}
-      mt={2}
-    >
-      <Grid item xs={4}>
-        <AppRegistrationRoundedIcon htmlColor="orange" fontSize="large" />
-      </Grid>
+    <>
+      {isLoading ? (
+        <Backdrop
+          sx={{ color: '#fff', zIndex: theme => theme.zIndex.drawer + 1 }}
+          open={isLoading}
+        >
+          <CircularProgress color="inherit" />
+        </Backdrop>
+      ) : (
+        <Grid
+          onSubmit={handleSubmit}
+          component="form"
+          container
+          direction="column"
+          alignItems="center"
+          spacing={2}
+          mt={2}
+        >
+          <Grid item xs={4}>
+            <AppRegistrationRoundedIcon htmlColor="orange" fontSize="large" />
+          </Grid>
 
-      <Grid item xs={4}>
-        <TextField
-          onChange={handleChange}
-          type="text"
-          name="userName"
-          value={userName}
-          minLength={2}
-          autoComplete="on"
-          required
-          label="Your name"
-          variant="outlined"
-        />
-      </Grid>
-      <Grid item xs={4}>
-        <TextField
-          onChange={handleChange}
-          type="email"
-          name="email"
-          value={email}
-          autoComplete="on"
-          required
-          label="Your email"
-          variant="outlined"
-        />
-      </Grid>
+          <Grid item xs={4}>
+            <TextField
+              onChange={handleChange}
+              type="text"
+              name="userName"
+              value={userName}
+              minLength={2}
+              autoComplete="on"
+              required
+              label="Your name"
+              variant="outlined"
+            />
+          </Grid>
+          <Grid item xs={4}>
+            <TextField
+              onChange={handleChange}
+              type="email"
+              name="email"
+              value={email}
+              autoComplete="on"
+              required
+              label="Your email"
+              variant="outlined"
+            />
+          </Grid>
 
-      <Grid item xs={4}>
-        <TextField
-          onChange={handleChange}
-          type="password"
-          name="password"
-          value={password}
-          minLength={8}
-          autoComplete="on"
-          required
-          label="Password:"
-          variant="outlined"
-        />
-      </Grid>
-      <Grid item xs={4}>
-        <Button type="submit" color="primary" size="large" variant="outlined">
-          Sign up
-        </Button>
-      </Grid>
-    </Grid>
+          <Grid item xs={4}>
+            <TextField
+              onChange={handleChange}
+              type="password"
+              name="password"
+              value={password}
+              minLength={8}
+              autoComplete="on"
+              required
+              label="Password:"
+              variant="outlined"
+            />
+          </Grid>
+          <Grid item xs={4}>
+            <Button
+              type="submit"
+              color="primary"
+              size="large"
+              variant="outlined"
+            >
+              Sign up
+            </Button>
+          </Grid>
+        </Grid>
+      )}
+    </>
   );
 };
