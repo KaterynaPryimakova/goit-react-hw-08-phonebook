@@ -6,11 +6,10 @@ export const Hero = styled.div`
   justify-content: center;
   flex-direction: column;
   position: relative;
-  padding: 8px 0;
 `;
 export const Image = styled.img`
   position: absolute;
-  top: 28px;
+  top: 0;
   z-index: -1;
   max-width: 600px;
 `;
