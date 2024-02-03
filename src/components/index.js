@@ -9,4 +9,3 @@ export { RestrictedRoute } from './RestrictedRoute/RestrictedRoute';
 export { PrivateRoute } from './PrivateRoute/PrivateRoute';
 export { RegisterForm } from './RegisterForm/RegisterForm';
 export { LoginForm } from './LoginForm/LoginForm';
-export { Skeleton } from './Skeleton/Skeleton';

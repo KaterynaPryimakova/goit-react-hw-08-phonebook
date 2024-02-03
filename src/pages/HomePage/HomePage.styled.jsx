@@ -14,3 +14,19 @@ export const Image = styled.img`
   z-index: -1;
   max-width: 600px;
 `;
+export const Donate = styled.a`
+  margin-left: 8px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #1976d2;
+  border-radius: 50%;
+  padding: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  :hover,
+  :focus {
+    background-color: orange;
+  }
+`;
