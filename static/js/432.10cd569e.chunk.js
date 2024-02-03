@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkphonebook=self.webpackChunkphonebook||[]).push([[432],{8432:function(e,n,s){s.r(n);var h=s(8600),i=s(3329);n.default=function(){return(0,i.jsxs)("div",{children:[(0,i.jsx)("h1",{hidden:!0,children:"Register Page"}),(0,i.jsx)(h.B2,{})]})}}}]);
+//# sourceMappingURL=432.10cd569e.chunk.js.map
