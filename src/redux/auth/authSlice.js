@@ -47,12 +47,7 @@ const authSlice = createSlice({
         return initialState;
       })
       .addMatcher(
-        isAnyOf(
-          registerUser.pending,
-          loginUser.pending,
-          refreshUser.pending,
-          logoutUser.pending
-        ),
+        isAnyOf(registerUser.pending, loginUser.pending, logoutUser.pending),
         state => {
           state.isLoading = true;
           state.error = null;
