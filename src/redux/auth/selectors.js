@@ -3,3 +3,4 @@ export const selectError = store => store.auth.error;
 export const selectUserData = store => store.auth.userData;
 export const selectIsLoading = store => store.auth.isLoading;
 export const selectIsLoggedIn = store => store.auth.isLoggedIn;
+export const selectIsRefreshing = store => store.auth.isRefreshing;
