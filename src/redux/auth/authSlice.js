@@ -7,7 +7,7 @@ const initialState = {
   token: null,
   error: null,
   isLoading: false,
-  isRefreshing: true,
+  isRefreshing: false,
 };
 
 const authSlice = createSlice({
@@ -28,6 +28,11 @@ const authSlice = createSlice({
         state.isLoggedIn = true;
         state.userData = action.payload.user;
         state.token = action.payload.token;
+      })
+      .addCase(refreshUser.pending, state => {
+        state.isRefreshing = true;
+        state.isLoading = false;
+        state.error = null;
       })
       .addCase(refreshUser.fulfilled, (state, action) => {
         state.isLoading = false;
